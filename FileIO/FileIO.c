@@ -11,6 +11,7 @@ int getNumOfVertices(){
   return numOfVertices;
 }
 
+//Method that fills a graph with the values passed through a textfile
 int initializeGraph(int** graph){
 
   int i;
@@ -27,7 +28,7 @@ int initializeGraph(int** graph){
       if(strcmp(aux, "INF") != 0){
         graph[i][j] = atoi(aux);
       }else{
-        graph[i][j] = 99999;
+        graph[i][j] = 99999; //An INF means that there is no connection.
       }
 			if(j != numOfVertices - 1){
       	aux = strtok(NULL, delim);
@@ -37,6 +38,8 @@ int initializeGraph(int** graph){
   }
 }
 
+//It is necesary to separate the initialization of the graph so that it is possible
+//to the user to assign memory to the matrix of the graph
 int initReader(char *filename){
 
 	char *ch;

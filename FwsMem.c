@@ -13,6 +13,7 @@ int debugTime;
 char* filen;
 struct timespec start={0,0}, tend={0,0};
 
+//Method for calculating the minimum of two integers
 int min(int e1, int e2){
 	if(e1 <= e2){
 		return e1;
@@ -21,6 +22,7 @@ int min(int e1, int e2){
 	}
 }
 
+//Method used for printing matrix in a human-readable way
 void printSolution(int** dist, char* msg){
 	printf("%s\n", msg);
 	int i;
@@ -38,6 +40,7 @@ void printSolution(int** dist, char* msg){
 	}
 }
 
+//Method used for initializing the auxiliar array M
 void initM(){
   int i;
   int j;
@@ -63,6 +66,7 @@ void initM(){
 
 }
 
+//Recursive method used to implement the memoization algorithm.
 int fwsRec(int** graph, int k, int i, int j){
 	if(M[k][i][j] == INF){
 		if(k == 0){
@@ -77,6 +81,7 @@ int fwsRec(int** graph, int k, int i, int j){
 	return M[k][i][j];
 }
 
+//Method used to manage the execution of the algorithm and print debugging messages (if asked)
 void floydWarshall(int** graph){
 	int i;
 	int j;
@@ -109,6 +114,7 @@ void floydWarshall(int** graph){
 	}
 }
 
+//Method used to capture the arguments passed when running the program
 int captureArgs(int argc, char* argv[]){
 	int i;
 
